@@ -1,8 +1,0 @@
-import math
-import pyaudio
-
-PyAudio = pyaudio.PyAudio
-
-BITRATE=16000
-
-FREQUENCY=261.63]
