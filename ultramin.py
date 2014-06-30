@@ -10,7 +10,8 @@ PIN_ECHO=24
 # Buzzer, including initial frequencies
 # Remember, the buzzing is going to be threaded so we need to set the FREQUENCY as a constant that will be changed by the ultrasonic reading
 PIN_BUZZER = 18
-FREQUENCY = 300
+BASE_FREQUENCY = 300
+FREQUENCY_MULTIPLIER = 2
 
 def read_ultrasonic():
 	GPIO.output(PIN_TRIG, True)
@@ -55,14 +56,14 @@ def change_frequency(freq):
 ######################################################
 
 setup()
-p = GPIO.PWM(PIN_BUZZER,FREQUENCY)
+p = GPIO.PWM(PIN_BUZZER,BASE_FREQUENCY)
 p.start(1)
 
 try:
 	while True:
 		distance = read_ultrasonic()
-		time.sleep(0.05)
-		change_frequency(200+distance)
+		time.sleep(0.1)
+		change_frequency(BASE_FREQUENCY+(distance*FREQUENCY_MULTIPLIER))
 
 except KeyboardInterrupt:
 	pass
