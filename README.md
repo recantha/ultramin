@@ -1,6 +1,7 @@
 UltraMin
 --------
 Raspberry Pi-powered theramin-like musical instrument
+
 Use the instructions below and the code provided to make a rudimentary movement-controlled musical instrument.
 By moving your hand closer and further away from the sensor, the pitch from the buzzer will change.
 
